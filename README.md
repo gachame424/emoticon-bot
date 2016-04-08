@@ -4,6 +4,8 @@
 
 LineBot tiny starter kit written in PHP.
 
+![screen image](https://raw.github.com/wiki/CoachUnited/linebot-test/images/linebot_image.png)
+
 ## Quick start
 
 * Get LINE BOT API trial account.
