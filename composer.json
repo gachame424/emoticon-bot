@@ -1,13 +1,11 @@
 {
   "require" : {
     "guzzlehttp/guzzle": "6.2.0",
-    "silex/silex": "~1.3",
-    "monolog/monolog": "~1.7",
-    "twig/twig": "^1.19",
-    "symfony/twig-bridge": "^2.7",
+    "silex/silex": "v1.3.5",
+    "monolog/monolog": "1.18.2",
     "cu/linebot": "dev-master"
   },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
+    "heroku/heroku-buildpack-php": "v100"
   }
 }
