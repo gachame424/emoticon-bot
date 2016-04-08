@@ -1,6 +1,19 @@
 {
   "name": "PHP LineBot Test",
-  "description": "",
-  "repository": "",
-  "addons": []
+  "description": "linebot tiny starter kit written in PHP.",
+  "repository": "https://github.com/CoachUnited/linebot-test.git",
+  "addons": [
+    'fixie:tricycle'
+  ],
+  "env": {
+    "LINE_CHANNEL_ID": {
+      "description": "LINE Channel ID"
+    },
+    "LINE_CHANNEL_SECRET": {
+      "description": "LINE Channel Secret"
+    },
+    "LINE_CHANNEL_MID": {
+      "description": "MID"
+    }
+  }
 }
