@@ -13,7 +13,7 @@ silex を使っています.
 * Heroku アカウントを取得してください.
 * 下の Deploy ボタンを押してデプロイします. LINE Bot API アカウントの画面で確認できる各種パラメータ値を環境変数として指定してください.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/CoachUnited/linebot-test)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](http://bit.ly/linebot-test-deploy)
 
 * LINE Bot Channel Dashboard で以下の値を設定します.
     * LINE からのコールバックURL: `<HerokuにデプロイされたURL>/callback`
