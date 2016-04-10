@@ -1,19 +1,22 @@
 # linebot-test
 
-## What is this?
+## これはなに？
 
-LineBot tiny starter kit written in PHP.
+LineBot をひとまず PHP on Heroku で動かしてみるためのミニマルなフレームワーク(スターターキット)です.
+silex を使っています.
 
 ![screen image](https://raw.github.com/wiki/CoachUnited/linebot-test/images/linebot_image.png)
 
-## Quick start
+## 始め方
 
-* Get LINE BOT API trial account.
-* Create heroku account.
-* Press Deploy button and configure.
+* LINE Bot API Trial account を取得してください.
+* Heroku アカウントを取得してください.
+* 下の Deploy ボタンを押してデプロイします. LINE Bot API アカウントの画面で確認できる各種パラメータ値を環境変数として指定してください.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/CoachUnited/linebot-test)
 
-* Set server whitelist addresses on LINE BOT Channel dashboard. (confirm it at https://dashboard.usefixie.com/#/account )
-* Try chatting the bot account.
-* Let's hack from web/index.php and enjoy!
+* LINE Bot Channel Dashboard で以下の値を設定します.
+    * LINE からのコールバックURL: `<HerokuにデプロイされたURL>/callback`
+    * LINE Bot API をアクセスするサーバのIPアドレスのホワイトリスト: https://dashboard.usefixie.com/#/account で確認できます.
+* LINE クライアントから Bot に話しかけてみてください.
+* web/index.php を編集して Hack してみましょう. Enjoy!

@@ -22,6 +22,7 @@ $app->before(function (Request $request) use($bot) {
 });
 
 $app->post('/callback', function (Request $request) use ($app, $bot) {
+    // Let's hack from here!
     $body = json_decode($request->getContent(), true);
 
     foreach ($body['result'] as $obj) {
