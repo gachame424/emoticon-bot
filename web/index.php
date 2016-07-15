@@ -30,7 +30,8 @@ $app->post ( '/callback', function (Request $request) use ($app, $bot) {
 		$content = $obj ['content'];
 
 		if ($content ['text'] == "しらんがな") {
-			$bot->sendText ( $from, printf ("(´･ω･｀)しらんがな") );
+			$content ['text'] = "(´･ω･｀)しらんがな";
+			$bot->sendText ( $from, sprintf ( "%s", $content ['text'] ) );
 		} else {
 			$bot->sendText ( $from, sprintf ( "「%s」じゃねーよ！！", $content ['text'] ) );
 		}
