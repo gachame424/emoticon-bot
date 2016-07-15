@@ -26,12 +26,12 @@ $app->post('/callback', function (Request $request) use ($app, $bot) {
     $body = json_decode($request->getContent(), true);
 
     foreach ($body['result'] as $obj) {
-        $app['monolog']->addInfo(sprintf('obj: 「%s」\\\n', json_encode($obj)));
+        $app['monolog']->addInfo(sprintf('obj: %s', json_encode($obj)));
         $from = $obj['content']['from'];
         $content = $obj['content'];
 
         if ($content['text']) {
-            $bot->sendText($from, sprintf('%sじゃねーよ！！', $content['text']));
+            $bot->sendText($from, sprintf("「%s」\\nじゃねーよ！！", $content['text']));
         }
     }
 
