@@ -31,7 +31,7 @@ $app->post ( '/callback', function (Request $request) use ($app, $bot) {
 
 		$emoticon_array = get_tsv_emoticon ();
 		if (array_key_exists ( $content ['text'], $emoticon_array ) === TRUE) {
-			$key = array_rand ( $emoticon_array ["あせ"] );
+			$key = array_rand ( $emoticon_array [ $content ['text']] );
 			$bot->sendText ( $from, sprintf ( "%s", $emoticon_array [$content ['text']] [$key] ) );
 		} else {
 			$bot->sendText ( $from, sprintf ( "「%s」じゃねーよ！！", $content ['text'] ) );
