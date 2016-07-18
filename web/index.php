@@ -29,9 +29,10 @@ $app->post ( '/callback', function (Request $request) use ($app, $bot) {
 		$from = $obj ['content'] ['from'];
 		$content = $obj ['content'];
 
-		if ($content ['text'] == "しらんがな") {
-			$content ['text'] = "(´･ω･｀)しらんがな";
-			$bot->sendText ( $from, sprintf ( "%s", $content ['text'] ) );
+		$emoticon_array = get_tsv_emoticon ();
+		if (array_key_exists ( $content ['text'], $emoticon_array ) === TRUE) {
+			$key = array_rand ( $emoticon_array ["あせ"] );
+			$bot->sendText ( $from, sprintf ( "%s", $emoticon_array [$content ['text']] [$key] ) );
 		} else {
 			$bot->sendText ( $from, sprintf ( "「%s」じゃねーよ！！", $content ['text'] ) );
 		}
@@ -41,3 +42,30 @@ $app->post ( '/callback', function (Request $request) use ($app, $bot) {
 } );
 
 $app->run ();
+function get_tsv_emoticon() {
+	$file = '../emoticon_dic_utf8.txt';
+	$data = file_get_contents ( $file );
+	$temp = tmpfile ();
+
+	fwrite ( $temp, $data );
+	rewind ( $temp );
+
+	$emoticon_array = array ();
+	$value = array ();
+	$key = 'しらんがな';
+	while ( ($data = fgetcsv ( $temp, 0, "\t" )) !== FALSE ) {
+		if ($key != $data [0]) {
+			$emoticon_array += array (
+					$key => $value
+			);
+			$value = array ();
+			$key = $data [0];
+		}
+		array_push ( $value, $data [1] );
+	}
+	$emoticon_array += array (
+			$key => $value
+	);
+	fclose ( $temp );
+	return $emoticon_array;
+}
